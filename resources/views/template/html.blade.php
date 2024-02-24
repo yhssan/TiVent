@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
+
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.bootstrap5.min.css') }}">
+
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.7.0.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.responsive5.min.js') }}"></script>
+    <script src="{{ asset('js/responsive.bootstrap5.min.js') }}"></script>
 </head>
 <style>
     .navbar {
@@ -52,5 +62,10 @@
             </div>
         </div>
     </footer>
+    <script>
+        new DataTables ('#example',{
+            responsive : true;
+        });
+    </script>
 </body>
 </html>

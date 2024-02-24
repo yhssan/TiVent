@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->time('waktu');
             $table->integer('stok');
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('category_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

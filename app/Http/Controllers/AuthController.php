@@ -53,7 +53,7 @@ class AuthController extends Controller
             return redirect()->route('admin');
        }
        elseif ($user->role === 'kasir') {
-            return redirect()->route('orders');
+            return redirect()->route('pesanan');
        }
        elseif ($user->role === 'owner') {
             return redirect()->route('riwayat');

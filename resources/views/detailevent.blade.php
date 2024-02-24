@@ -39,49 +39,18 @@
                 </div>
             </div>
         </div>
+        
         <div class="col-7" style="width: ; ">
             <div class="row " style="">
-                {{-- <div class="row">
-                    <div class="col-6 my-2">
-                        <div class="d-flex align-items-start">
-                            <div class="shadow p-2 flex-grow-1 rounded-start text-center" style="background-color: darkblue;">
-                                <img src="{{ asset('img/lokasi.svg') }}" alt="svgg" style="color: azure;" width="auto" height="51px">
-                                <h5 class="text-white" style="font-size: 14px; margin-bottom: 0;">Lokasi</h5>
-                            </div>
-                            <div class="shadow p-3 flex-grow-1 rounded-end bg-white" style="margin-left: -5px; padding: 15px;">
-                                <h4 style="font-size: 20px; margin-bottom: 5px;">1 Hari</h4>
-                                <p style="margin-bottom: 0; font-size: 15px;">Minggu, {{ $Event->tanggal,}}, {{  $Event->waktu  }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 my-2">
-                        <div class="d-flex align-items-start">
-                            <div class="shadow p-2 flex-grow-1 rounded-start text-center" style="background-color: darkblue;">
-                                <img src="{{ asset('img/lokasi.svg') }}" alt="svgg" style="color: azure;" width="auto" height="51px">
-                                <h5 class="text-white" style="font-size: 14px; margin-bottom: 0;">Lokasi</h5>
-                            </div>
-                            <div class="shadow p-3 flex-grow-1 rounded-end bg-white" style="margin-left: -5px; padding: 15px;">
-                                <h4 style="font-size: 20px; margin-bottom: 5px;">1 Hari</h4>
-                                <p style="margin-bottom: 0; font-size: 15px;">Minggu, {{ $Event->tanggal,}}, {{  $Event->waktu  }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             <div class="card p-2">
                 <iframe src="{{ $Event->map }}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
                 
-                
-                
-
             </div>
             <form action="{{ route('postorder',$Event->id) }}" class="form-group" method="POST" enctype="">
                 @csrf
                 <div class="card mt-3 p-2 mb-4">
                     <h5 class="text-center mb-4">Pesan Tiket</h5>
-                    {{-- <p class="card-text"><strong>Lokasi :</strong> {{ $Event->lokasi }}</p>
-                    <p class="card-text"><strong>Tanggal :</strong> {{ $Event->tanggal }}</p>
-                    <p class="card-text"><strong>Waktu :</strong> {{ $Event->waktu }}</p> --}}
                     <h6 class="card-text">Rp. {{ number_format($Event->harga, 0, ',', '.') }}</h6>
                     <h6 class="card-text">Sisa Tiket: {{ number_format($Event->stok, 0, ',', '.') }}</h6>
                     <label for="banyak" class="form-label">Total Pesanan:</label>

@@ -15,7 +15,7 @@
             <div class="text-center p-1">
                 <img src="img/tiventlogo.png" alt="TiVent"  style="width: 150px; height: auto" class="p-1 text-center">
             </div>
-            <h3 class="text-center fw-bold">Login</h3>
+            <h3 class="text-center fw-bold">LOGIN</h3>
             <label for="">Username</label>
             <input type="text" class="form-control" name="name" placeholder="Masukkan Username" required>
             <label for="">Password</label>

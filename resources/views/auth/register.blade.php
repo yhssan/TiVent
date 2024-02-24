@@ -8,7 +8,7 @@
             <div class="text-center p-1">
                 <img src="img/tiventlogo.png" alt="TiVent"  style="width: 150px; height: auto;"  class="p-1 text-center">
             </div>
-            <h3 class="text-center fw-bold">Register</h3>
+            <h3 class="text-center fw-bold">REGISTER</h3>
             <label for="name">Username</label>
             <input type="text" class="form-control" name="name" placeholder="Masukkan Username" required>
 

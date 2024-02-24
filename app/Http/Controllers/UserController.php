@@ -6,9 +6,11 @@ use App\Models\Category;
 use App\Models\DetailOrder;
 use App\Models\Event;
 use App\Models\Order;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+
 
 class UserController extends Controller
 {
@@ -35,9 +37,9 @@ class UserController extends Controller
         ->wherenull('bukti_pembayaran')
         ->where('user_id', auth()->id())
         ->where('status_pembayaran', 'pending')
-        ->get();
+        ->latest()->get();
 
-        return view('order', compact('detailorder'));
+        return view('transaksi.order', compact('detailorder'));
         
     }
    
@@ -103,13 +105,13 @@ class UserController extends Controller
             ->whereNotNull('bukti_pembayaran')
             ->get();
 
-        return view('history', compact('orderHistory'));
+        return view('user.history', compact('orderHistory'));
         
     }
 
     public function bayar(Request $request,DetailOrder $detailOrder) {
         $Event = $detailOrder->event;
-        return view ('bayar', compact('detailOrder','Event'));
+        return view ('transaksi.bayar', compact('detailOrder','Event'));
         
     }
     
@@ -140,5 +142,19 @@ class UserController extends Controller
         return redirect()->route('order')->with('notif', 'Pesanan berhasil dibatalkan');
 
         
+    }
+    public function printInvoiceTicket($id) {
+        $detailOrder = DetailOrder::with(['order', 'event', 'user'])->find($id);
+        if (!$detailOrder) {
+            abort(404);
+        }
+        
+        $data = [
+            'detailOrder' =>$detailOrder,
+        ];
+
+        $pdf = PDF::loadView('transaksi.invoice-ticket', $data);
+
+        return $pdf->download($detailOrder->order->code . '.pdf');
     }
 }
